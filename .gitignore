@@ -10,3 +10,5 @@ chapter-2/node_modules
 public
 vendor
 bower_components
+
+*.abc

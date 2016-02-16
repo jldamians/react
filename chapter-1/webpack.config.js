@@ -1,20 +1,19 @@
  var pkg = require('./package.json');
 
  module.exports = {
-	resolve: {
-		extensions: ['', '.jsx', '.js']
-	},
- 	entry: './app.jsx',
+ 	entry: './app/components/Main.js',
  	output: {
- 		path: './build',
- 		filename: pkg.name + '.js'
+ 		filename: 'public/bundle.js'
  	},
  	module: {
  		loaders: [
 	 		{
-	 			test: /(\.js|\.jsx)$/,
+	 			test: /\.jsx?$/,
+	 			exclude: /(node_modules|bower_components)/,
 	 			loader: 'babel',
-				query: { presets: ['es2015', 'stage-0', 'react'] }
+				query: {
+					presets: ['react', 'es2015']
+				}
 	 		}
  		]
  	}
