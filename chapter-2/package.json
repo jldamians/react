@@ -1,8 +1,8 @@
 {
-  "name": "chapter-01",
+  "name": "chapter-02",
   "version": "1.0.0",
-  "description": "chapter-01, examples of react.js",
-  "main": "hello-example-1.js",
+  "description": "chapter-02, examples of react.js",
+  "main": "./build/chapter-02.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
