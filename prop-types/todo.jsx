@@ -8,7 +8,7 @@ class ToDo extends React.Component {
 				<Task name='Introduction' done />
 				<Task name='Chapter 1 - First component' done />
 				<Task name='Chapter 2 - Properties' done={false} />
-				<Task />
+				<Task name='Obligatorio'/>
 			</ul>
 		)
 	}

@@ -19762,7 +19762,7 @@
 					_react2.default.createElement(_task2.default, { name: 'Introduction', done: true }),
 					_react2.default.createElement(_task2.default, { name: 'Chapter 1 - First component', done: true }),
 					_react2.default.createElement(_task2.default, { name: 'Chapter 2 - Properties', done: false }),
-					_react2.default.createElement(_task2.default, null)
+					_react2.default.createElement(_task2.default, { name: 'Obligatorio' })
 				);
 			}
 		}]);
