@@ -19758,15 +19758,22 @@
 
 			return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(Heroes)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.state = {
 				list: []
+			}, _this.fetchData = function () {
+				setTimeout(function () {
+					//alert('cambiando...')
+					this.setState({ list: dataSource });
+				}.bind(_this), 2000);
+			}, _this.handleReset = function () {
+				_this.setState({ list: [] });
+			}, _this.handleFetch = function () {
+				_this.fetchData();
 			}, _temp), _possibleConstructorReturn(_this, _ret);
 		}
 
 		_createClass(Heroes, [{
 			key: 'componentDidMount',
 			value: function componentDidMount() {
-				setTimeout(function () {
-					this.setState({ list: dataSource });
-				}.bind(this), 5000);
+				this.fetchData();
 			}
 		}, {
 			key: 'render',
@@ -19775,24 +19782,39 @@
 					return _react2.default.createElement(
 						'div',
 						null,
-						'No Heroes!'
+						'No Heroes!',
+						_react2.default.createElement('br', null),
+						_react2.default.createElement(
+							'button',
+							{ onClick: this.handleFetch },
+							'Fetch'
+						)
+					);
+				} else {
+					return _react2.default.createElement(
+						'div',
+						null,
+						_react2.default.createElement(
+							'ul',
+							null,
+							this.state.list.map(function (heroe, index) {
+								return _react2.default.createElement(
+									'li',
+									{ key: index },
+									heroe.name,
+									' the ',
+									heroe.power,
+									'!'
+								);
+							})
+						),
+						_react2.default.createElement(
+							'button',
+							{ onClick: this.handleReset },
+							'Reset'
+						)
 					);
 				}
-
-				return _react2.default.createElement(
-					'ul',
-					null,
-					this.state.list.map(function (heroe, index) {
-						return _react2.default.createElement(
-							'li',
-							{ key: index },
-							heroe.name,
-							' the ',
-							heroe.power,
-							'!'
-						);
-					})
-				);
 			}
 		}]);
 

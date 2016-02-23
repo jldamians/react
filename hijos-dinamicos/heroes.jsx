@@ -8,34 +8,56 @@ var dataSource = [
 ]
 
 class Heroes extends React.Component {
-	componentDidMount() {
-		setTimeout(function() {
-			this.setState({list: dataSource})
-		}.bind(this), 5000)
-	}
-
 	state = {
 		list: []
 	}
 
-	render() {
-		if ( !this.state.list.length ) {
-			return (<div>No Heroes!</div>)
-		}
+	fetchData = () => {
+		setTimeout(function() {
+			//alert('cambiando...')
+			this.setState({list: dataSource})
+		}.bind(this), 2000)
+	}
 
-		return (
-			<ul>
-				{
-					this.state.list.map(function(heroe, index) {
-						return (
-							<li key={index}>
-								{heroe.name} the {heroe.power}!
-							</li>
-						)
-					})
-				}
-			</ul>
-		)
+	handleReset = () => {
+		this.setState({list: []})
+	}
+
+	handleFetch = () => {
+		this.fetchData()
+	}
+
+	componentDidMount() {
+		this.fetchData()
+	}
+
+	render() {
+		if( !this.state.list.length ) {
+			return(
+				<div>
+					No Heroes!
+					<br />
+					<button onClick={this.handleFetch}>Fetch</button>
+				</div>
+			)
+		} else {
+			return(
+				<div>
+					<ul>
+						{
+							this.state.list.map(function(heroe, index){
+								return(
+									<li key={index}>
+										{heroe.name} the {heroe.power}!
+									</li>
+								)
+							})
+						}
+					</ul>
+					<button onClick={this.handleReset}>Reset</button>
+				</div>
+			)
+		}
 	}
 }
 
