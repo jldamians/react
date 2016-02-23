@@ -1,18 +1,20 @@
 import React from 'react'
+import ReactMixin from 'react-mixin'
 
 import MixinES from './mixin.es'
 import MixinFR from './mixin.fr'
 
-const Hello = React.createClass({
-	mixins: [MixinES, MixinFR],
-
-	componentDidMount: function(){
+class Hello extends React.Component{
+	componentDidMount() {
 		console.log('Hello World!')
-	},
+	}
 
-	render: function() {
+	render() {
 		return <span>Mixin!</span>
 	}
-})
+}
+
+ReactMixin(Hello.prototype, MixinES)
+ReactMixin(Hello.prototype, MixinFR)
 
 export default Hello
