@@ -20,6 +20,7 @@ class Task extends React.Component {
 
 	// definimos el evento click
 	// cuando el estado 'updated' sea modificado, se agregara un nuevo elemento 'small' a 'li'
+	// son utiles para contener datos en el componente
 	handleClick = (event) => {
 		this.setState({updated: true})
 	}
